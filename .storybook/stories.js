@@ -5,7 +5,7 @@ import { ThemeProvider } from 'emotion-theming';
 import { storiesOf } from '@storybook/react';
 import { withThemes, createTheme } from '../src/index.js';
 
-import { Button } from './ui';
+import { ButtonSolid, ButtonRegular, Text, content } from './ui';
 import { theme, themeAlt, darkTheme } from './theme';
 
 // const setThemes = useThemes(ThemeProvider, [
@@ -18,16 +18,23 @@ storiesOf('Button', module)
   .addDecorator(withThemes(ThemeProvider, [theme, themeAlt, darkTheme]))
   .add(
     'Buttons1',
-    () => <Button>Hello Button</Button>,
+    () => <ButtonSolid>Hello Button</ButtonSolid>,
     // setThemes({ currentTheme: 4 }),
   )
   .add(
     'Buttons2',
-    () => <Button>Hello Button</Button>,
+    () => <ButtonRegular>Hello Button</ButtonRegular>,
     // setThemes({ currentTheme: 3 }),
   )
   .add(
     'Buttons3',
-    () => <Button>Hello Button</Button>,
+    () => <Text>{content}</Text>,
     // setThemes({ currentTheme: 0 }),
   );
+
+  storiesOf('Non themable', module)
+  .add(
+    'Component1',
+    () => <button>Component without decorator</button>,
+    // setThemes({ currentTheme: 4 }),
+  )
