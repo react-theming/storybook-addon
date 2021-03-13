@@ -14,7 +14,7 @@
   },
   "author": "Oleg Proskurin (https://github.com/UsulPro)",
   "scripts": {
-    "start-storybook": "start-storybook -p 9001 -s public --ci",
+    "start-storybook": "start-storybook -p 9001 -s public --ci --no-manager-cache",
     "prepare": "package-prepare",
     "_prestart": "relative-deps",
     "start": "nodemon --exec yarn start-storybook",
