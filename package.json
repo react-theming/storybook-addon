@@ -58,6 +58,7 @@
     "@babel/preset-env": "^7.13.10",
     "@babel/preset-react": "^7.12.13",
     "@storybook/addon-actions": "^6.1.21",
+    "@storybook/addon-backgrounds": "^6.1.21",
     "@storybook/addon-links": "^6.1.21",
     "@storybook/addons": "^6.1.21",
     "@storybook/react": "^6.1.21",
@@ -79,7 +80,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "3.0.1",
-    "relative-deps": "^1.0.1"
+    "relative-deps": "^1.0.1",
+    "storybook-dark-mode": "^1.0.7"
   },
   "peerDependencies": {
     "@storybook/react": "^5.0.0 || ^6.0.0",
