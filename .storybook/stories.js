@@ -12,10 +12,24 @@ const providerFn = ({ theme, children }) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
+export const onThemeSwitch = context => {
+  const { theme } = context;
+  const background = theme.name === 'Dark theme' ? '#2c2f33' : 'white';
+  const parameters = {
+    backgrounds: {
+      default: background,
+    },
+  };
+  return {
+    parameters,
+  };
+};
+
 storiesOf('Button', module)
   .addDecorator(
     withThemes(ThemeProvider, [theme, themeAlt, darkTheme], {
       providerFn,
+      onThemeSwitch,
     }),
   )
   .add('Buttons1', () => <ButtonSolid>Hello Button</ButtonSolid>)
