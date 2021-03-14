@@ -18,6 +18,8 @@ npm i --save-dev @react-theming/storybook-addon
 - Switching between themes from addon panel.
 - Change a color and see how it affects to your components
 - Easily copy-paste paths of nesting theme props into your code
+- Auto changes background
+- Supports dark Storybook theme
 
 
 ## Usage
@@ -61,6 +63,25 @@ const providerFn = ({ theme, children }) => {
 };
 
 const themingDecorator = withThemes(null, [theme], { providerFn });
+```
+
+You can auto switch background for dark themes by passing `onThemeSwitch` function:
+
+```js
+export const onThemeSwitch = context => {
+  const { theme } = context;
+  const background = theme.name === 'Dark theme' ? '#2c2f33' : 'white';
+  const parameters = {
+    backgrounds: {
+      default: background,
+    },
+  };
+  return {
+    parameters,
+  };
+};
+
+const themingDecorator = withThemes(null, [theme], { onThemeSwitch });
 ```
 
 Below the use cases for most popular styling libraries:

@@ -25,10 +25,7 @@ const AddonThemingPanel = ({
   selectValue,
   changeSelectedColor,
   isFirstDataReceived,
-  api,
 }) => {
-  console.log('🚀 ~ file: register.js ~ line 30 ~ api', api);
-
   return isFirstDataReceived ? (
     <Layout name="adk-tmp">
       <SelectTheme

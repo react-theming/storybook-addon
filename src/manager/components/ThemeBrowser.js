@@ -26,10 +26,6 @@ const ThemeBrowser = ({ theme, themeInfo, selectValue, selectedValue }) => {
   const sbTheme = useTheme();
   const jsTheme =
     sbTheme.base === 'light' ? 'shapeshifter:inverted' : 'codeschool';
-  console.log(
-    '🚀 ~ file: ThemeBrowser.js ~ line 27 ~ ThemeBrowser ~ sbTheme',
-    sbTheme,
-  );
   const footerAction = showThemePath(selectedValue);
   return (
     <styled.Container>
