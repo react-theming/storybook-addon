@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactJson from '@usulpro/react-json-view';
+import { useTheme } from '@storybook/theming';
 
 import * as styled from './ThemeBrowser.styled';
 import Toolbar from '../UI/Toolbar';
@@ -22,6 +23,13 @@ const showThemePath = selectedValue => {
 };
 
 const ThemeBrowser = ({ theme, themeInfo, selectValue, selectedValue }) => {
+  const sbTheme = useTheme();
+  const jsTheme =
+    sbTheme.base === 'light' ? 'shapeshifter:inverted' : 'codeschool';
+  console.log(
+    '🚀 ~ file: ThemeBrowser.js ~ line 27 ~ ThemeBrowser ~ sbTheme',
+    sbTheme,
+  );
   const footerAction = showThemePath(selectedValue);
   return (
     <styled.Container>
@@ -29,7 +37,12 @@ const ThemeBrowser = ({ theme, themeInfo, selectValue, selectedValue }) => {
         <Caption>{themeInfo.name}</Caption>
       </Toolbar>
       <styled.ThemeHolder>
-        <ReactJson src={theme} onSelect={selectValue} name={null} />
+        <ReactJson
+          src={theme}
+          onSelect={selectValue}
+          name={null}
+          theme={jsTheme}
+        />
       </styled.ThemeHolder>
       <Toolbar footer>
         {footerAction && (

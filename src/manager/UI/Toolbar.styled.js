@@ -2,7 +2,7 @@ import { styled } from '@storybook/theming';
 
 export const Container = styled.div`
   background-color: ${({ theme, footer }) =>
-    footer ? '#f3f3f3' : theme.background.app};
+    footer ? theme.background.hoverable : theme.background.hoverable};
 
   padding: ${({ footer }) => (footer ? '6px 8px' : '4px 8px')};
   display: flex;

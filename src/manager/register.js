@@ -25,8 +25,11 @@ const AddonThemingPanel = ({
   selectValue,
   changeSelectedColor,
   isFirstDataReceived,
-}) =>
-  isFirstDataReceived ? (
+  api,
+}) => {
+  console.log('🚀 ~ file: register.js ~ line 30 ~ api', api);
+
+  return isFirstDataReceived ? (
     <Layout name="adk-tmp">
       <SelectTheme
         themeInfoList={themeInfoList}
@@ -47,6 +50,7 @@ const AddonThemingPanel = ({
   ) : (
     <p>Waiting for data</p>
   );
+};
 
 register(
   {

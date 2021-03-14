@@ -8,6 +8,8 @@ export const Container = styled(Block)`
   display: flex;
   flex-direction: column;
   height: 100%;
+  background-color: ${({ theme }) => theme.background.app};
+  color: ${({ theme }) => theme.input.color};
 
   ul {
     list-style: none;
@@ -24,18 +26,24 @@ export const ListHolder = styled.div`
 `;
 
 export const Theme = styled.button`
-  border: 1px solid ${({ theme }) => theme.background.app};
+  border: 1px solid ${({ theme }) => theme.input.border};
   ${({ current, theme }) =>
-    current ? `border-color: ${theme.color.secondary};` : null}
+    current ? `border-color: ${theme.color.secondary} !important;` : null}
+
   border-radius: ${({ theme }) => theme.appBorderRadius}px;
-  background-color: ${({ theme }) => theme.background.app};
+  background-color: ${({ theme }) => theme.background.hoverable};
   margin: ${({ theme }) => Math.floor(theme.layoutMargin / 2)}px 0px;
   padding: 0px;
   width: 100%;
   cursor: pointer;
+  color: ${({ theme }) => theme.input.color};
 
   :hover {
     border: 1px solid ${({ theme }) => theme.appBorderColor};
+  }
+  :focus {
+    outline: 1px solid ${({ theme }) => theme.color.dark};
+    outline-offset: 2px;
   }
 
   display: flex;
