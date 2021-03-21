@@ -1,3 +1,3 @@
-import { withThemes } from "../preview";
+import { withThemes } from '../preview';
 
 export const decorators = [withThemes];

@@ -5,12 +5,10 @@ export const setCurrent = (store, ind) => ({
   currentTheme: ind,
 });
 
-export const selectValue = (store, { name, namespace, type }) => {
-  return {
-    ...store,
-    selectedValue: { name, namespace, type },
-  };
-};
+export const selectValue = (store, { name, namespace, type }) => ({
+  ...store,
+  selectedValue: { name, namespace, type },
+});
 
 export const updateTheme = (store, ind, newTheme) => {
   const { themesList } = store;
