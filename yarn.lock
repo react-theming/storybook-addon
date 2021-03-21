@@ -1650,18 +1650,18 @@
     is-color-stop "^1.1.0"
     rgb-hex "^3.0.0"
 
-"@react-theming/theme-name@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@react-theming/theme-name/-/theme-name-1.0.2.tgz#41acb4d875c21950c98d23eb0f8a9d03f412fdc6"
-  integrity sha512-6YUXCRK/K0HMICwOm7GVOq9FD7u85yE1P8p5bIOFlUz1mzCQbn4GMSVR1iUiPMgKxwLJysekKaOJMPa5RheC9w==
+"@react-theming/theme-name@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@react-theming/theme-name/-/theme-name-1.0.3.tgz#f722defe226dc349b32d7b8a699611ff6eeea008"
+  integrity sha512-5tYnKIG3wUJ3GTX50ldeU+nxLTEU8WXEGsHk8mWeG9XGC4VxKIp2gSqS6B/opCGmfuIFm459Dtru8PSuEXiJJg==
   dependencies:
     color-name-list "^4.7.1"
     nearest-color "^0.4.4"
 
-"@react-theming/theme-swatch@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@react-theming/theme-swatch/-/theme-swatch-0.2.0.tgz#7633050a638bd1b9f2af31d69870052618cbb03f"
-  integrity sha512-DC/E+UM3wi4B9et4epy3cQAGmh4VKA4X3oXeDvSIlwyMAyymSS21TgQFtBVZhr6EFeacxched+9esLyrlbXbBw==
+"@react-theming/theme-swatch@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@react-theming/theme-swatch/-/theme-swatch-1.0.0.tgz#ba3ffc8e69c65a220b9bf1da0c2d5134287037e8"
+  integrity sha512-tOzDTUbFB5uQLMVHJ4fXWYZ4i7JIKjyrS7SlHDoscRZqM69lmT+s9fSZoD1/InTdX0M7Jh8thXF0SzeoxnD1/Q==
 
 "@storybook/addon-actions@^6.1.21":
   version "6.1.21"
@@ -2045,7 +2045,7 @@
     shelljs "^0.8.1"
     yargs "^15.0.0"
 
-"@storybook/theming@6.1.21", "@storybook/theming@^6.1.18":
+"@storybook/theming@6.1.21", "@storybook/theming@^6.1.18", "@storybook/theming@^6.1.21":
   version "6.1.21"
   resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-6.1.21.tgz#b8e612e5a39b77f7e63a5f9ea322ed62adb0d5b0"
   integrity sha512-yq7+/mpdljRdSRJYw/In/9tnDGXIUDe//mhyMftFfrB2mq6zi1yAZpowCerWhiDE2ipGkrfzIYx/Sn7bcaXgqg==

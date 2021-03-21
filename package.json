@@ -27,8 +27,8 @@
   },
   "dependencies": {
     "@react-theming/flatten": "^0.1.1",
-    "@react-theming/theme-name": "^1.0.2",
-    "@react-theming/theme-swatch": "^0.2.0",
+    "@react-theming/theme-name": "^1.0.3",
+    "@react-theming/theme-swatch": "^1.0.0",
     "@storybook/addon-devkit": "^1.4.1",
     "@usulpro/react-json-view": "^2.0.1",
     "react-color": "^2.18.0"
@@ -63,6 +63,7 @@
     "@storybook/addons": "^6.1.21",
     "@storybook/react": "^6.1.21",
     "@storybook/storybook-deployer": "^2.8.7",
+    "@storybook/theming": "^6.1.21",
     "@usulpro/package-prepare": "^1.3.1",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.2.2",
@@ -117,5 +118,6 @@
   ],
   "storybook": {
     "displayName": "React Theming"
-  }
+  },
+  "license": "MIT"
 }
