@@ -20,6 +20,7 @@ npm i --save-dev @react-theming/storybook-addon
 - Easily copy-paste paths of nesting theme props into your code
 - Auto changes background
 - Supports dark Storybook theme
+- Keep selected theme on stories updates
 
 
 ## Usage

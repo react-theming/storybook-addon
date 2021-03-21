@@ -1,9 +1,14 @@
 import { getSelectedValue, getTheme, getCurrentInd } from './selectors';
 
-export const setCurrent = (store, ind) => ({
-  ...store,
-  currentTheme: ind,
-});
+export const setCurrent = (store, ind, api) => {
+  api.setQueryParams({
+    themeInd: ind,
+  });
+  return {
+    ...store,
+    currentTheme: ind,
+  };
+};
 
 export const selectValue = (store, { name, namespace, type }) => ({
   ...store,

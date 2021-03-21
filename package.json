@@ -16,7 +16,8 @@
   "scripts": {
     "start-storybook": "start-storybook -p 9001 -s public --ci --no-manager-cache",
     "prepare": "package-prepare",
-    "_prestart": "relative-deps",
+    "prestart": "relative-deps",
+    "predev": "relative-deps",
     "start": "nodemon --exec yarn start-storybook",
     "dev": "nodemon --exec yarn prepare",
     "build-storybook": "build-storybook -s public",
@@ -34,7 +35,8 @@
     "react-color": "^2.18.0"
   },
   "relativeDependencies": {
-    "@react-theming/theme-name": "../theme-name"
+    "@react-theming/theme-name": "../theme-name",
+    "@storybook/addon-devkit": "../addon-development-kit"
   },
   "eslintConfig": {
     "extends": "react-app"

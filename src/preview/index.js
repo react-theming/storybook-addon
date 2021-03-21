@@ -25,7 +25,7 @@ const withData = (ThemeProvider, { providerFn, onThemeSwitch }) => {
     );
   }
   return createDecorator({
-    theme: store => store.themesList[store.currentTheme],
+    theme: store => store.themesList[store.currentTheme || 0],
     themeInd: store => store.currentTheme,
     onThemeSwitch: () => onThemeSwitch,
   })(DecoratorUI(CurrentThemeProvider), { isGlobal: true });
@@ -38,7 +38,7 @@ export const withThemes = (
 ) =>
   withData(ThemeProvider, { providerFn, onThemeSwitch })({
     themesList,
-    currentTheme: 0,
+    currentTheme: null,
   });
 
 export const toThemes = setParameters();
