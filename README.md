@@ -103,7 +103,7 @@ addDecorator(withThemes(ThemeProvider, [theme]));
 ```
 
 
-## Using with Styled Components
+## 💅 Using with Styled Components
 
 ```js
 // .storybook/preview.js
