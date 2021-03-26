@@ -1,6 +1,6 @@
 {
   "name": "@react-theming/storybook-addon",
-  "description": "Develop themable components with Emotion, Styled Components or Material-UI",
+  "description": "Develop themes and themable components with Emotion, Styled Components, Material-UI and your custom solution",
   "version": "1.1.1",
   "private": false,
   "main": "dist/index.js",
@@ -121,7 +121,7 @@
     "appearance"
   ],
   "storybook": {
-    "displayName": "React theming"
+    "displayName": "React Theming"
   },
   "license": "MIT"
 }
