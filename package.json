@@ -116,7 +116,9 @@
     "themable components",
     "customization",
     "dark theme",
-    "light theme"
+    "light theme",
+    "storybook-addon",
+    "appearance"
   ],
   "storybook": {
     "displayName": "React Theming"
