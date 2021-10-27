@@ -123,5 +123,8 @@
   "storybook": {
     "displayName": "React Theming"
   },
+  "resolutions": {
+    "@usulpro/react-json-view": "^2.0.1"
+  },
   "license": "MIT"
 }
