@@ -1,9 +1,11 @@
 import { getSelectedValue, getTheme, getCurrentInd } from './selectors';
 
 export const setCurrent = (store, ind, api) => {
-  api.setQueryParams({
-    themeInd: ind,
-  });
+  if (api) {
+    api.setQueryParams({
+      themeInd: ind,
+    });
+  }
   return {
     ...store,
     currentTheme: ind,
