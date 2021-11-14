@@ -14,11 +14,11 @@ const providerFn = ({ theme, children }) => {
 
 export const onThemeSwitch = context => {
   const { theme } = context;
-  const background = theme.name === 'Dark theme' ? '#2c2f33' : 'white';
+  const background = theme.name === 'Dark theme' ? 'pink' : 'red';
   const parameters = {
-    backgrounds: {
+    backgrounds: null,/* {
       default: background,
-    },
+    }, */
   };
   return {
     parameters,

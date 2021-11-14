@@ -11,6 +11,9 @@ const createStyle = color => `
 `;
 
 export const addBackgroundStyle = color => {
+  if (!color) {
+    return;
+  }
   const css = createStyle(color);
   const existingStyle = document.getElementById(TAG_SELECTOR);
   if (existingStyle) {
@@ -28,7 +31,7 @@ export const addBackgroundStyle = color => {
 
 export const handleOnSwitch = ({ theme, onThemeSwitch }) => {
   const result = onThemeSwitch({ theme });
-  const color = result.parameters.backgrounds.default;
+  const color = result.parameters?.backgrounds?.default;
   addBackgroundStyle(color);
 };
 
