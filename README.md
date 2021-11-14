@@ -66,7 +66,11 @@ const providerFn = ({ theme, children }) => {
 const themingDecorator = withThemes(null, [theme], { providerFn });
 ```
 
-You can auto switch background for dark themes by passing `onThemeSwitch` function:
+BACKGROUND COLOR
+
+This addon has ability to auto change background color when it detect a dark theme. By default it checks if the theme name contains 'dark'.
+
+You can customize this behavior by passing `onThemeSwitch` function:
 
 ```js
 export const onThemeSwitch = context => {
@@ -76,6 +80,7 @@ export const onThemeSwitch = context => {
     backgrounds: {
       default: background,
     },
+    // Pass backgrounds: null to disable background switching at all
   };
   return {
     parameters,
@@ -84,6 +89,11 @@ export const onThemeSwitch = context => {
 
 const themingDecorator = withThemes(null, [theme], { onThemeSwitch });
 ```
+
+This way you can have own checks of what the theme is selected and pass what ever color you need.
+
+!important: The addon change background color on each theme selecting. In some scenarios you might want to disable this behavior e.g. if you already using addon-backgrounds. You can disable background switching by passing `backgrounds: null` in parameters.
+
 
 Below the use cases for most popular styling libraries:
 
