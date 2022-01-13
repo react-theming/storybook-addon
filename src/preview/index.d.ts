@@ -20,11 +20,9 @@ export function withThemes(
   },
 ): unknown;
 
-export const toThemes: <
-  T extends import('@storybook/addon-devkit').AddonParameters
->(
+export const toThemes: <T extends import('@storybook/addon-devkit').AddonParameters>(
   T: any,
-) => { [key: any]: T };
+) => { [key: symbol]: T };
 
 export function useThemes(
   ThemeProvider: React.Component<{ theme: {}; [key: string]: any }>,
