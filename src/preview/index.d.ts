@@ -1,45 +1,30 @@
+import { StoryFn } from '@storybook/addon-devkit';
 import React = require('react');
 
-export function withThemes(
-  ThemeProvider: React.Component<{ theme: {}; [key: string]: any }>,
-  themesList: {}[],
-  {
-    providerFn,
-    onThemeSwitch,
-  }?: {
-    providerFn: React.Component<{ theme: {}; [key: string]: any }>;
-    onThemeSwitch?: (
-      context: any,
-    ) => {
-      parameters: {
-        backgrounds: {
-          default: string;
-        };
-      };
-    };
-  },
-): unknown;
+type ThemeProviderProps<T extends {} = {}, P extends {} = {}> = {
+  theme: T;
+  children: React.ReactNode;
+} & P;
 
-export const toThemes: <T extends import('@storybook/addon-devkit').AddonParameters>(
-  T: any,
+type Opts<T extends {} = {}, P extends {} = {}> = {
+  providerFn: React.FC<ThemeProviderProps<T, P>>;
+  onThemeSwitch?: (context: any) => {};
+};
+
+export function withThemes<T extends {} = {}, P extends {} = {}>(
+  ThemeProvider: React.ComponentType<ThemeProviderProps<T, P>>,
+  themesList: {}[],
+  opts: Opts<T, P>,
+): ReturnType<StoryFn>;
+
+export const toThemes: <
+  T extends import('@storybook/addon-devkit').AddonParameters
+>(
+  _: T,
 ) => { [key: symbol]: T };
 
-export function useThemes(
-  ThemeProvider: React.Component<{ theme: {}; [key: string]: any }>,
+export function useThemes<T extends {} = {}, P extends {} = {}>(
+  ThemeProvider: React.ComponentType<ThemeProviderProps<T, P>>,
   themesList: {}[],
-  {
-    providerFn,
-    onThemeSwitch,
-  }?: {
-    providerFn: React.Component<{ theme: {}; [key: string]: any }>;
-    onThemeSwitch?: (
-      context: any,
-    ) => {
-      parameters: {
-        backgrounds: {
-          default: string;
-        };
-      };
-    };
-  },
+  opts: Opts<T, P>,
 ): typeof toThemes;
