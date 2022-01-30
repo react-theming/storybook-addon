@@ -1,5 +1,5 @@
 import { StoryFn } from '@storybook/addon-devkit';
-import React = require('react');
+import React from 'react';
 
 type ThemeProviderProps<T extends {} = {}, P extends {} = {}> = {
   theme: T;
