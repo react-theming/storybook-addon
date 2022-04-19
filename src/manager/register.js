@@ -7,6 +7,7 @@ import {
   getThemeInfo,
   getSelectedValue,
   getCurrentInd,
+  getSnippet,
 } from '../selectors';
 import SelectTheme from './components/SelectTheme';
 import ThemeBrowser from './components/ThemeBrowser';
@@ -26,6 +27,7 @@ const AddonThemingPanel = ({
   changeSelectedColor,
   isFirstDataReceived,
   api,
+  snippet,
 }) => {
   window.api = api;
   React.useEffect(() => {
@@ -34,6 +36,7 @@ const AddonThemingPanel = ({
       setCurrent(storedThemeInd || 0);
     }
   }, [themeInd]);
+
   return isFirstDataReceived && themeInd !== null ? (
     <Layout name="adk-tmp">
       <SelectTheme
@@ -46,6 +49,7 @@ const AddonThemingPanel = ({
         themeInfo={themeInfo}
         selectValue={selectValue}
         selectedValue={selectedValue}
+        snippetFunc={snippet}
       />
       <ColorDetails
         selectedValue={selectedValue}
@@ -64,6 +68,7 @@ register(
     themeInfo: getThemeInfo,
     themeInd: getCurrentInd,
     selectedValue: getSelectedValue,
+    snippet: getSnippet,
   },
   ({ global }) => ({
     setCurrent: global(actions.setCurrent),

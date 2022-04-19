@@ -1,32 +1,32 @@
 import React from 'react';
 import ReactJson from '@usulpro/react-json-view';
-import { useTheme } from '@storybook/theming';
+import {useTheme} from '@storybook/theming';
 
 import * as styled from './ThemeBrowser.styled';
 import Toolbar from '../UI/Toolbar';
 import Caption from '../UI/Caption';
 import IconButton from '../UI/IconButton';
 import Text from '../UI/Text';
-import { copyToClipboard } from '../../utils/clipboard';
+import {copyToClipboard} from '../../utils/clipboard';
+import {
+  defaultSnippet
+} from "../../utils/default";
 
-const showThemePath = selectedValue => {
+const showThemePath = (selectedValue, snippetFunc) => {
   if (!selectedValue) return 'select value';
   try {
-    const { namespace, name } = selectedValue;
-    const path = namespace.join('.');
-    const fullPath = `${path}.${name}`;
-    const themeProp = `\${({ theme }) => theme.${fullPath}}`;
-    return themeProp;
+    if (snippetFunc) return snippetFunc(selectedValue);
+    return defaultSnippet(selectedValue);
   } catch (err) {
     return 'try to select value';
   }
 };
 
-const ThemeBrowser = ({ theme, themeInfo, selectValue, selectedValue }) => {
+const ThemeBrowser = ({ theme, themeInfo, selectValue, selectedValue, snippetFunc }) => {
   const sbTheme = useTheme();
   const jsTheme =
     sbTheme.base === 'light' ? 'shapeshifter:inverted' : 'codeschool';
-  const footerAction = showThemePath(selectedValue);
+  const footerAction = showThemePath(selectedValue, snippetFunc);
   return (
     <styled.Container>
       <Toolbar>
