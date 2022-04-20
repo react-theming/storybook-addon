@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactJson from '@usulpro/react-json-view';
+import YamlEditor from "@focus-reactive/react-yaml";
 import { useTheme } from '@storybook/theming';
 
 import * as styled from './ThemeBrowser.styled';
@@ -23,22 +24,42 @@ const showThemePath = selectedValue => {
 };
 
 const ThemeBrowser = ({ theme, themeInfo, selectValue, selectedValue }) => {
+  const [editorYaml, setEditorYaml] = React.useState(false)
   const sbTheme = useTheme();
   const jsTheme =
     sbTheme.base === 'light' ? 'shapeshifter:inverted' : 'codeschool';
   const footerAction = showThemePath(selectedValue);
+
+  const handlerChange = (value) => {
+    console.log(value)
+  };
+
+  const testObj = {
+    one: "one",
+    two: "ywo",
+    free: "free"
+  };
+  const buttonTitle = editorYaml ? "Json editor" : "Yaml editor"
+
   return (
     <styled.Container>
+      <button onClick={() => setEditorYaml(!editorYaml)}>{buttonTitle}</button>
       <Toolbar>
         <Caption>{themeInfo.name}</Caption>
       </Toolbar>
       <styled.ThemeHolder>
-        <ReactJson
+        { editorYaml ?
+          <YamlEditor
+            json={theme}
+            onChange={handlerChange}
+          /> :
+          <ReactJson
           src={theme}
           onSelect={selectValue}
           name={null}
           theme={jsTheme}
         />
+        }
       </styled.ThemeHolder>
       <Toolbar footer>
         {footerAction && (
