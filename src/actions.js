@@ -1,8 +1,4 @@
-import {
-  getCurrentInd,
-  getSelectedValue,
-  getTheme
-} from './selectors';
+import { getCurrentInd, getSelectedValue, getTheme } from './selectors';
 
 export const setCurrent = (store, ind, api) => {
   if (api) {

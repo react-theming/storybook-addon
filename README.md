@@ -63,7 +63,42 @@ const providerFn = ({ theme, children }) => {
   return <ThemeProvider theme={muTheme}>{children}</ThemeProvider>;
 };
 
-const themingDecorator = withThemes(null, [theme], { providerFn });
+const themingDecorator = withThemes(null, [theme], null, { providerFn });
+```
+
+## Use your output of the selected value
+
+```js
+// .storybook/preview.js
+
+import { ThemeProvider } from 'styled-components';
+import { addDecorator } from '@storybook/react';
+import { withThemes } from '@react-theming/storybook-addon';
+
+import { theme } from '../src/theme';
+
+// The snippet Func function takes the SelectedValue parameter and returns a string
+addDecorator(withThemes(ThemeProvider, [theme], fieldSnippetFc));
+```
+
+### Example fieldSnippetFc
+
+```js
+const selectedValue = {
+  name: "accent5",
+  namespace: ["palette", "colors"],
+  type: "color",
+  value: "#ac924d"
+}
+
+
+const fieldSnippetFc = selectedValue => {
+  const { namespace, name } = selectedValue;
+  const path = namespace.join('.');
+  const fullPath = `${path}.${name}`;
+  const themeProp = `\${({ theme }) => theme.${fullPath}}`;
+  return themeProp;
+};
 ```
 
 BACKGROUND COLOR
@@ -87,7 +122,7 @@ export const onThemeSwitch = context => {
   };
 };
 
-const themingDecorator = withThemes(null, [theme], { onThemeSwitch });
+const themingDecorator = withThemes(null, [theme], null, { onThemeSwitch });
 ```
 
 This way you can have own checks of what the theme is selected and pass what ever color you need.
@@ -172,7 +207,7 @@ const providerFn = ({ theme, children }) => {
 };
 
 // pass ThemeProvider and array of your themes to decorator
-addDecorator(withThemes(null, [theme], { providerFn }));
+addDecorator(withThemes(null, [theme],null, { providerFn }));
 ```
 
 ```js
@@ -195,44 +230,6 @@ ReactDOM.render(
 ```
 
 There is an example app with CRA, Material-UI and Storybook Addon [Demo](https://react-theming.github.io/theming-material-ui/) [Source](https://github.com/react-theming/theming-material-ui)
-
-
-## Use your output of the selected value
-
-
-```js
-// .storybook/preview.js
-
-import { ThemeProvider } from 'styled-components';
-import { addDecorator } from '@storybook/react';
-import { withThemes } from '@react-theming/storybook-addon';
-
-import { theme } from '../src/theme';
-
-// The snippet Func function takes the SelectedValue parameter and returns a string
-addDecorator(withThemes(ThemeProvider, [theme], null, snippetFunc));
-```
-
-### Example snippetFunc
-
-```js
-const selectedValue = {
-  name: "accent5",
-  namespace: ["palette", "colors"],
-  type: "color",
-  value: "#ac924d"
-}
-
-
-const snippetFunc = selectedValue => {
-  const { namespace, name } = selectedValue;
-  const path = namespace.join('.');
-  const fullPath = `${path}.${name}`;
-  const themeProp = `\${({ theme }) => theme.${fullPath}}`;
-  return themeProp;
-};
-```
-
 
 ## Credits
 

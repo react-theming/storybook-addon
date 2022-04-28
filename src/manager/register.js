@@ -49,7 +49,7 @@ const AddonThemingPanel = ({
         themeInfo={themeInfo}
         selectValue={selectValue}
         selectedValue={selectedValue}
-        snippetFunc={snippet}
+        fieldSnippetFn={snippet}
       />
       <ColorDetails
         selectedValue={selectedValue}

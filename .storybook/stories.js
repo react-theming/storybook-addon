@@ -25,18 +25,14 @@ export const onThemeSwitch = context => {
   };
 };
 
-const funcSnippet = (selectedValue) => {
-  console.log("funcSnippet", selectedValue)
-  return "selectedValue";
-};
+
 
 storiesOf('Button', module)
   .addDecorator(
-    withThemes(ThemeProvider, [theme, themeAlt, darkTheme], {
+    withThemes(ThemeProvider, [theme, themeAlt, darkTheme],null, {
       providerFn,
       onThemeSwitch,
-    },
-      funcSnippet
+    }
     ),
   )
   .add('Buttons1', () => <ButtonSolid>Hello Button</ButtonSolid>)
