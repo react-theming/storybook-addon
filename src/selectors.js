@@ -10,6 +10,7 @@ export const createSelector = (...args) => {
 
 export const getCurrentInd = store => store.currentTheme;
 export const getThemesList = store => store.themesList;
+export const getSnippet = store => store.fieldSnippetFn;
 
 export const getTheme = createSelector(
   getCurrentInd,

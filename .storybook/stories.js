@@ -25,12 +25,15 @@ export const onThemeSwitch = context => {
   };
 };
 
+
+
 storiesOf('Button', module)
   .addDecorator(
     withThemes(ThemeProvider, [theme, themeAlt, darkTheme], {
       providerFn,
-      onThemeSwitch,
-    }),
+      onThemeSwitch
+    }
+    ),
   )
   .add('Buttons1', () => <ButtonSolid>Hello Button</ButtonSolid>)
   .add('Buttons2', () => <ButtonRegular>Hello Button</ButtonRegular>)

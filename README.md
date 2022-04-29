@@ -66,6 +66,43 @@ const providerFn = ({ theme, children }) => {
 const themingDecorator = withThemes(null, [theme], { providerFn });
 ```
 
+## Use your output of the selected value
+
+```js
+// .storybook/preview.js
+
+import { ThemeProvider } from 'styled-components';
+import { addDecorator } from '@storybook/react';
+import { withThemes } from '@react-theming/storybook-addon';
+
+import { theme } from '../src/theme';
+
+```
+
+### Example fieldSnippetFc
+
+```js
+const selectedValue = {
+  name: "accent5",
+  namespace: ["palette", "colors"],
+  type: "color",
+  value: "#ac924d"
+}
+
+
+const fieldSnippetFc = selectedValue => {
+  const { namespace, name } = selectedValue;
+  const path = namespace.join('.');
+  const fullPath = `${path}.${name}`;
+  const themeProp = `\${({ theme }) => theme.${fullPath}}`;
+  return themeProp;
+};
+
+// The snippet Func function takes the SelectedValue parameter and returns a string
+addDecorator(withThemes(ThemeProvider, [theme], { fieldSnippetFc }));
+
+```
+
 BACKGROUND COLOR
 
 This addon has ability to auto change background color when it detect a dark theme. By default it checks if the theme name contains 'dark'.
@@ -195,7 +232,6 @@ ReactDOM.render(
 ```
 
 There is an example app with CRA, Material-UI and Storybook Addon [Demo](https://react-theming.github.io/theming-material-ui/) [Source](https://github.com/react-theming/theming-material-ui)
-
 
 ## Credits
 

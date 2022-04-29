@@ -28,3 +28,4 @@ export function useThemes<T extends {} = {}, P extends {} = {}>(
   themesList: {}[],
   opts: Opts<T, P>,
 ): typeof toThemes;
+

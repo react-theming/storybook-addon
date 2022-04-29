@@ -9,24 +9,26 @@ import IconButton from '../UI/IconButton';
 import Text from '../UI/Text';
 import { copyToClipboard } from '../../utils/clipboard';
 
-const showThemePath = selectedValue => {
+const showThemePath = (selectedValue, fieldSnippetFn) => {
   if (!selectedValue) return 'select value';
   try {
-    const { namespace, name } = selectedValue;
-    const path = namespace.join('.');
-    const fullPath = `${path}.${name}`;
-    const themeProp = `\${({ theme }) => theme.${fullPath}}`;
-    return themeProp;
+    return fieldSnippetFn(selectedValue);
   } catch (err) {
     return 'try to select value';
   }
 };
 
-const ThemeBrowser = ({ theme, themeInfo, selectValue, selectedValue }) => {
+const ThemeBrowser = ({
+  theme,
+  themeInfo,
+  selectValue,
+  selectedValue,
+  fieldSnippetFn,
+}) => {
   const sbTheme = useTheme();
   const jsTheme =
     sbTheme.base === 'light' ? 'shapeshifter:inverted' : 'codeschool';
-  const footerAction = showThemePath(selectedValue);
+  const footerAction = showThemePath(selectedValue, fieldSnippetFn);
   return (
     <styled.Container>
       <Toolbar>
