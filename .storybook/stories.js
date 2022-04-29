@@ -29,9 +29,9 @@ export const onThemeSwitch = context => {
 
 storiesOf('Button', module)
   .addDecorator(
-    withThemes(ThemeProvider, [theme, themeAlt, darkTheme],null, {
+    withThemes(ThemeProvider, [theme, themeAlt, darkTheme], {
       providerFn,
-      onThemeSwitch,
+      onThemeSwitch
     }
     ),
   )

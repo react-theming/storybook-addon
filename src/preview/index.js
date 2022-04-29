@@ -34,13 +34,16 @@ const withData = (ThemeProvider, { providerFn, onThemeSwitch }) => {
 export const withThemes = (
   ThemeProvider,
   themesList,
-  fieldSnippetFn,
-  { providerFn, onThemeSwitch = onThemeSwitchDefault } = {},
+  {
+    providerFn,
+    onThemeSwitch = onThemeSwitchDefault,
+    fieldSnippetFn = defaultSnippet,
+  } = {},
 ) =>
   withData(ThemeProvider, { providerFn, onThemeSwitch })({
     themesList,
     currentTheme: null,
-    fieldSnippetFn: fieldSnippetFn || defaultSnippet,
+    fieldSnippetFn,
   });
 
 export const toThemes = setParameters();

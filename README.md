@@ -63,7 +63,7 @@ const providerFn = ({ theme, children }) => {
   return <ThemeProvider theme={muTheme}>{children}</ThemeProvider>;
 };
 
-const themingDecorator = withThemes(null, [theme], null, { providerFn });
+const themingDecorator = withThemes(null, [theme], { providerFn });
 ```
 
 ## Use your output of the selected value
@@ -77,8 +77,6 @@ import { withThemes } from '@react-theming/storybook-addon';
 
 import { theme } from '../src/theme';
 
-// The snippet Func function takes the SelectedValue parameter and returns a string
-addDecorator(withThemes(ThemeProvider, [theme], fieldSnippetFc));
 ```
 
 ### Example fieldSnippetFc
@@ -99,6 +97,10 @@ const fieldSnippetFc = selectedValue => {
   const themeProp = `\${({ theme }) => theme.${fullPath}}`;
   return themeProp;
 };
+
+// The snippet Func function takes the SelectedValue parameter and returns a string
+addDecorator(withThemes(ThemeProvider, [theme], { fieldSnippetFc }));
+
 ```
 
 BACKGROUND COLOR
@@ -122,7 +124,7 @@ export const onThemeSwitch = context => {
   };
 };
 
-const themingDecorator = withThemes(null, [theme], null, { onThemeSwitch });
+const themingDecorator = withThemes(null, [theme], { onThemeSwitch });
 ```
 
 This way you can have own checks of what the theme is selected and pass what ever color you need.
@@ -207,7 +209,7 @@ const providerFn = ({ theme, children }) => {
 };
 
 // pass ThemeProvider and array of your themes to decorator
-addDecorator(withThemes(null, [theme],null, { providerFn }));
+addDecorator(withThemes(null, [theme], { providerFn }));
 ```
 
 ```js
