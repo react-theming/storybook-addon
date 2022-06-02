@@ -30,14 +30,12 @@ const AddonThemingPanel = ({
 }) => {
   window.api = api;
 
-
   React.useEffect(() => {
     if (themeInd === null) {
       const storedThemeInd = api.getQueryParam('themeInd');
       setCurrent(storedThemeInd || 0);
     }
   }, [themeInd]);
-
 
   return isFirstDataReceived && themeInd !== null ? (
     <Layout name="adk-tmp">

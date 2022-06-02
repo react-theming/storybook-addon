@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ChromePicker } from 'react-color';
 
 import * as styled from './ColorDetails.styled';
