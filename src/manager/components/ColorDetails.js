@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ChromePicker } from 'react-color';
 
 import * as styled from './ColorDetails.styled';
@@ -10,7 +10,6 @@ import { copyToClipboard } from '../../utils/clipboard';
 
 const ColorDetails = ({ selectedValue, onChange }) => {
   const { value, name, type } = selectedValue || {};
-
   const isColor = type === 'color';
 
   const handleChange = colorInfo => {

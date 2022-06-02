@@ -41,3 +41,10 @@ export const SelectedCard = styled.div`
   margin-top: 4px;
   font-size: 16px;
 `;
+
+export const ButtonsEditor = styled.div`
+  display: flex;
+  & button {
+    margin-right: 10px;
+  }
+`

@@ -26,14 +26,19 @@ const AddonThemingPanel = ({
   changeSelectedColor,
   isFirstDataReceived,
   api,
+  updateTheme,
 }) => {
   window.api = api;
+
+
   React.useEffect(() => {
     if (themeInd === null) {
       const storedThemeInd = api.getQueryParam('themeInd');
       setCurrent(storedThemeInd || 0);
     }
   }, [themeInd]);
+
+
   return isFirstDataReceived && themeInd !== null ? (
     <Layout name="adk-tmp">
       <SelectTheme
@@ -46,11 +51,12 @@ const AddonThemingPanel = ({
         themeInfo={themeInfo}
         selectValue={selectValue}
         selectedValue={selectedValue}
+        updateTheme={updateTheme}
       />
-      <ColorDetails
+      { selectedValue && (<ColorDetails
         selectedValue={selectedValue}
         onChange={changeSelectedColor}
-      />
+      />)}
     </Layout>
   ) : (
     <p>Waiting for data</p>
@@ -69,5 +75,6 @@ register(
     setCurrent: global(actions.setCurrent),
     selectValue: global(actions.selectValue),
     changeSelectedColor: global(actions.changeSelectedColor),
+    updateTheme: global(actions.changeTheme)
   }),
 )(AddonThemingPanel);
