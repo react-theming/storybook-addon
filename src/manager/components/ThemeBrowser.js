@@ -10,14 +10,10 @@ import IconButton from '../UI/IconButton';
 import Text from '../UI/Text';
 import { copyToClipboard } from '../../utils/clipboard';
 
-const showThemePath = selectedValue => {
+const showThemePath = (selectedValue, fieldSnippetFn) => {
   if (!selectedValue) return 'select value';
   try {
-    const { namespace, name } = selectedValue;
-    const path = namespace.join('.');
-    const fullPath = `${path}.${name}`;
-    const themeProp = `\${({ theme }) => theme.${fullPath}}`;
-    return themeProp;
+    return fieldSnippetFn(selectedValue);
   } catch (err) {
     return 'try to select value';
   }
@@ -25,6 +21,13 @@ const showThemePath = selectedValue => {
 
 const ThemeBrowser = ({ theme, themeInfo, selectValue, selectedValue, updateTheme, themeInd }) => {
   const [editorJSON, setEditorJSON] = React.useState(true)
+const ThemeBrowser = ({
+  theme,
+  themeInfo,
+  selectValue,
+  selectedValue,
+  fieldSnippetFn,
+}) => {
   const sbTheme = useTheme();
   const jsTheme =
     sbTheme.base === 'light' ? 'shapeshifter:inverted' : 'codeschool';

@@ -7,6 +7,7 @@ import {
   getThemeInfo,
   getSelectedValue,
   getCurrentInd,
+  getSnippet,
 } from '../selectors';
 import SelectTheme from './components/SelectTheme';
 import ThemeBrowser from './components/ThemeBrowser';
@@ -26,6 +27,7 @@ const AddonThemingPanel = ({
   changeSelectedColor,
   isFirstDataReceived,
   api,
+  snippet,
   updateTheme,
 }) => {
   window.api = api;
@@ -50,6 +52,7 @@ const AddonThemingPanel = ({
         selectValue={selectValue}
         selectedValue={selectedValue}
         updateTheme={updateTheme}
+        fieldSnippetFn={snippet}
       />
       { selectedValue && (<ColorDetails
         selectedValue={selectedValue}
@@ -68,6 +71,7 @@ register(
     themeInfo: getThemeInfo,
     themeInd: getCurrentInd,
     selectedValue: getSelectedValue,
+    snippet: getSnippet,
   },
   ({ global }) => ({
     setCurrent: global(actions.setCurrent),

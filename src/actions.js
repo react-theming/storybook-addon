@@ -1,4 +1,4 @@
-import { getSelectedValue, getTheme, getCurrentInd } from './selectors';
+import { getCurrentInd, getSelectedValue, getTheme } from './selectors';
 
 export const setCurrent = (store, ind, api) => {
   if (api) {
@@ -43,7 +43,6 @@ export const changeSelectedColor = (store, color) => {
   const ind = getCurrentInd(store);
   const themeClone = JSON.parse(JSON.stringify(theme));
   mutateObj(themeClone, namespace, name, color);
-
   return updateTheme(store, ind, themeClone);
 };
 

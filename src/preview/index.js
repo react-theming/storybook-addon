@@ -3,6 +3,7 @@ import { addDecorator } from '@storybook/react';
 import { createDecorator, setParameters } from '@storybook/addon-devkit';
 import '../config';
 import { handleOnSwitch, onThemeSwitchDefault } from './onThemeSwitch';
+import { defaultSnippet } from '../utils/default';
 
 const DecoratorUI = ThemeProvider => ({
   getStory,
@@ -33,11 +34,16 @@ const withData = (ThemeProvider, { providerFn, onThemeSwitch }) => {
 export const withThemes = (
   ThemeProvider,
   themesList,
-  { providerFn, onThemeSwitch = onThemeSwitchDefault } = {},
+  {
+    providerFn,
+    onThemeSwitch = onThemeSwitchDefault,
+    fieldSnippetFn = defaultSnippet,
+  } = {},
 ) =>
   withData(ThemeProvider, { providerFn, onThemeSwitch })({
     themesList,
     currentTheme: null,
+    fieldSnippetFn,
   });
 
 export const toThemes = setParameters();
