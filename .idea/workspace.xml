@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd845ca9-629e-43ef-b9c8-54fc6db6a303" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/manager/components/ColorDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/components/ColorDetails.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/manager/components/ThemeBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/components/ThemeBrowser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/manager/components/ThemeBrowser.styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/components/ThemeBrowser.styled.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/manager/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/register.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="ui_impovemenets" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -58,6 +55,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/dist/preview/index.d.ts" />
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="ECMAScript 6" />
@@ -68,7 +66,8 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -149,6 +148,7 @@
       <workItem from="1651289859187" duration="3068000" />
       <workItem from="1653973415556" duration="11514000" />
       <workItem from="1654149972016" duration="2180000" />
+      <workItem from="1654757189810" duration="260000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import ReactJson from '@usulpro/react-json-view';
-import YamlEditor from "@focus-reactive/react-yaml";
+import YamlEditor from '@focus-reactive/react-yaml';
 import { useTheme } from '@storybook/theming';
 
 import * as styled from './ThemeBrowser.styled';
@@ -19,60 +19,67 @@ const showThemePath = (selectedValue, fieldSnippetFn) => {
   }
 };
 
-const ThemeBrowser = ({ theme, themeInfo, selectValue, selectedValue, updateTheme, themeInd }) => {
-  const [editorJSON, setEditorJSON] = React.useState(true)
 const ThemeBrowser = ({
   theme,
   themeInfo,
   selectValue,
   selectedValue,
+  updateTheme,
+  themeInd,
   fieldSnippetFn,
 }) => {
+  const [editorJSON, setEditorJSON] = React.useState(true);
   const sbTheme = useTheme();
   const jsTheme =
     sbTheme.base === 'light' ? 'shapeshifter:inverted' : 'codeschool';
-  const footerAction = showThemePath(selectedValue);
+
+  const footerAction = showThemePath(selectedValue, fieldSnippetFn);
 
   useEffect(() => {
-    if(!editorJSON && selectedValue) selectValue(null);
+    if (!editorJSON && selectedValue) selectValue(null);
   }, [editorJSON, selectedValue]);
 
-  const handlerChange = (value) => updateTheme(value.json);
+  const handlerChange = value => updateTheme(value.json);
 
   return (
     <styled.Container>
       <Toolbar>
         <Caption>Editor:</Caption>
         <styled.ButtonsEditor>
-          <button  onClick={() => setEditorJSON(true)}>JSON</button>
-          <button onClick={() => setEditorJSON(false)}>YAML</button>
+          <button type="button" onClick={() => setEditorJSON(true)}>
+            JSON
+          </button>
+          <button type="button" onClick={() => setEditorJSON(false)}>
+            YAML
+          </button>
         </styled.ButtonsEditor>
       </Toolbar>
       <styled.ThemeHolder>
-        { editorJSON ?
+        {editorJSON ? (
           <ReactJson
             src={theme}
             onSelect={selectValue}
             name={null}
             theme={jsTheme}
-          /> :
+          />
+        ) : (
           <YamlEditor
             key={JSON.stringify(theme)}
             json={theme}
             onChange={handlerChange}
           />
-        }
+        )}
       </styled.ThemeHolder>
-        {footerAction && editorJSON ? (
-          <Toolbar footer>
-              <IconButton
-                icon="copy"
-                title="copy to clipboard"
-                onClick={copyToClipboard(footerAction)}
-              />
-            <Text>{footerAction}</Text>
-          </Toolbar>
-        ) : null}
+      {footerAction && editorJSON ? (
+        <Toolbar footer>
+          <IconButton
+            icon="copy"
+            title="copy to clipboard"
+            onClick={copyToClipboard(footerAction)}
+          />
+          <Text>{footerAction}</Text>
+        </Toolbar>
+      ) : null}
     </styled.Container>
   );
 };
