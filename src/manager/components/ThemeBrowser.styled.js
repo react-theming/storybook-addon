@@ -47,4 +47,4 @@ export const ButtonsEditor = styled.div`
   & button {
     margin-right: 10px;
   }
-`
+`;

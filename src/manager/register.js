@@ -54,10 +54,12 @@ const AddonThemingPanel = ({
         updateTheme={updateTheme}
         fieldSnippetFn={snippet}
       />
-      { selectedValue && (<ColorDetails
-        selectedValue={selectedValue}
-        onChange={changeSelectedColor}
-      />)}
+      {selectedValue && (
+        <ColorDetails
+          selectedValue={selectedValue}
+          onChange={changeSelectedColor}
+        />
+      )}
     </Layout>
   ) : (
     <p>Waiting for data</p>
@@ -77,6 +79,6 @@ register(
     setCurrent: global(actions.setCurrent),
     selectValue: global(actions.selectValue),
     changeSelectedColor: global(actions.changeSelectedColor),
-    updateTheme: global(actions.changeTheme)
+    updateTheme: global(actions.changeTheme),
   }),
 )(AddonThemingPanel);

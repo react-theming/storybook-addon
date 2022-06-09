@@ -21,11 +21,9 @@ const showThemePath = (selectedValue, fieldSnippetFn) => {
 
 const ThemeBrowser = ({
   theme,
-  themeInfo,
   selectValue,
   selectedValue,
   updateTheme,
-  themeInd,
   fieldSnippetFn,
 }) => {
   const [editorJSON, setEditorJSON] = React.useState(true);

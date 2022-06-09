@@ -12,12 +12,10 @@ export const setCurrent = (store, ind, api) => {
   };
 };
 
-export const selectValue = (store, value) => {
-  return {
-    ...store,
-    selectedValue: value,
-  }
-};
+export const selectValue = (store, value) => ({
+  ...store,
+  selectedValue: value,
+});
 
 export const updateTheme = (store, ind, newTheme) => {
   const { themesList } = store;
@@ -46,13 +44,13 @@ export const changeSelectedColor = (store, color) => {
   return updateTheme(store, ind, themeClone);
 };
 
-export const changeTheme = (store, newTheme ) => {
+export const changeTheme = (store, newTheme) => {
   const ind = getCurrentInd(store);
   const { themesList } = store;
   const newThemesList = [...themesList];
   newThemesList[ind] = newTheme;
-  return  {
+  return {
     ...store,
-    themesList: newThemesList
-  }
-}
+    themesList: newThemesList,
+  };
+};
