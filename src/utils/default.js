@@ -5,3 +5,5 @@ export const defaultSnippet = selectedValue => {
   const themeProp = `\${({ theme }) => theme.${fullPath}}`;
   return themeProp;
 };
+
+export const defaultColorSnippet = value => value;

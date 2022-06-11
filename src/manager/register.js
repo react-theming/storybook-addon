@@ -8,6 +8,7 @@ import {
   getSelectedValue,
   getCurrentInd,
   getSnippet,
+  getColorSnippet,
 } from '../selectors';
 import SelectTheme from './components/SelectTheme';
 import ThemeBrowser from './components/ThemeBrowser';
@@ -28,6 +29,7 @@ const AddonThemingPanel = ({
   isFirstDataReceived,
   api,
   snippet,
+  colorSnippet,
 }) => {
   window.api = api;
   React.useEffect(() => {
@@ -52,6 +54,7 @@ const AddonThemingPanel = ({
         fieldSnippetFn={snippet}
       />
       <ColorDetails
+        colorSnippet={colorSnippet}
         selectedValue={selectedValue}
         onChange={changeSelectedColor}
       />
@@ -69,6 +72,7 @@ register(
     themeInd: getCurrentInd,
     selectedValue: getSelectedValue,
     snippet: getSnippet,
+    colorSnippet: getColorSnippet,
   },
   ({ global }) => ({
     setCurrent: global(actions.setCurrent),
