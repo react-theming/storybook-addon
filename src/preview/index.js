@@ -37,15 +37,15 @@ export const withThemes = (
   {
     providerFn,
     onThemeSwitch = onThemeSwitchDefault,
-    fieldSnippetFn = defaultSnippet,
-    colorSnippet = defaultColorSnippet,
+    getCustomFieldSnippet = defaultSnippet,
+    getCustomValueSnippet = defaultColorSnippet,
   } = {},
 ) =>
   withData(ThemeProvider, { providerFn, onThemeSwitch })({
     themesList,
     currentTheme: null,
-    fieldSnippetFn,
-    colorSnippet,
+    fieldSnippetFn: getCustomFieldSnippet,
+    colorSnippet: getCustomValueSnippet,
   });
 
 export const toThemes = setParameters();
