@@ -8,17 +8,21 @@ const Button = styled.button`
   padding: 0;
   border: none;
   border-radius: 2px;
-  padding: 0;
   background-color: unset;
   height: 20px;
   width: 20px;
   background-repeat: no-repeat;
   background-size: contain;
+  svg {
+    fill: ${({ theme }) => (theme === 'codeschool' ? 'white' : 'black')};
+  }
 
   :hover {
-    background-color: white;
+    background-color: ${({ theme }) =>
+      theme !== 'codeschool' ? 'white' : null};
     svg {
-      stroke: #eeeeee;
+      stroke: ${({ theme }) =>
+        theme !== 'codeschool' ? '#eeeeee' : '#d4cece'};
     }
   }
 `;
@@ -38,10 +42,10 @@ const icons = {
   copy: copyIcon,
 };
 
-const IconButton = ({ onClick, title, icon }) => {
+const IconButton = ({ onClick, title, icon, theme }) => {
   const svg = icons[icon];
   return (
-    <Button onClick={onClick} title={title}>
+    <Button theme={theme} onClick={onClick} title={title}>
       {svg}
     </Button>
   );
