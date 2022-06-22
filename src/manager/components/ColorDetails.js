@@ -8,7 +8,7 @@ import IconButton from '../UI/IconButton';
 import Text from '../UI/Text';
 import { copyToClipboard } from '../../utils/clipboard';
 
-const ColorDetails = ({ selectedValue, onChange }) => {
+const ColorDetails = ({ selectedValue, onChange, jsTheme }) => {
   const { value, name, type } = selectedValue || {};
   const isColor = type === 'color';
 
@@ -18,7 +18,7 @@ const ColorDetails = ({ selectedValue, onChange }) => {
   };
 
   return (
-    <styled.Container size={250}>
+    <styled.Container size={350}>
       <Toolbar>
         <Caption>{name || 'Select color'}</Caption>
       </Toolbar>
@@ -29,11 +29,12 @@ const ColorDetails = ({ selectedValue, onChange }) => {
       </styled.PickerHolder>
       <Toolbar footer>
         <IconButton
+          theme={jsTheme}
           icon="copy"
           title="copy to clipboard"
           onClick={copyToClipboard(value)}
         />
-        <Text>{value}</Text>
+        <Text>{value || 'Select color'}</Text>
       </Toolbar>
     </styled.Container>
   );

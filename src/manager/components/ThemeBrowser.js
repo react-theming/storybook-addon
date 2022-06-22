@@ -11,7 +11,7 @@ import Text from '../UI/Text';
 import { copyToClipboard } from '../../utils/clipboard';
 
 const showThemePath = (selectedValue, fieldSnippetFn) => {
-  if (!selectedValue) return 'select value';
+  if (!selectedValue) return 'Select value';
   try {
     return fieldSnippetFn(selectedValue);
   } catch (err) {
@@ -21,6 +21,8 @@ const showThemePath = (selectedValue, fieldSnippetFn) => {
 
 const ThemeBrowser = ({
   theme,
+  themeInfo,
+  jsTheme,
   selectValue,
   selectedValue,
   updateTheme,
@@ -71,6 +73,7 @@ const ThemeBrowser = ({
       {footerAction && editorJSON ? (
         <Toolbar footer>
           <IconButton
+            theme={jsTheme}
             icon="copy"
             title="copy to clipboard"
             onClick={copyToClipboard(footerAction)}
