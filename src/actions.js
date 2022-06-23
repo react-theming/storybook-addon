@@ -15,6 +15,13 @@ export const setCurrent = (store, ind, api) => {
 export const selectValue = (store, value) => ({
   ...store,
   selectedValue: value,
+  selectedWord: null,
+});
+
+export const selectWord = (store, value) => ({
+  ...store,
+  selectedValue: null,
+  selectedWord: value,
 });
 
 export const updateTheme = (store, ind, newTheme) => {

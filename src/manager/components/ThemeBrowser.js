@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import * as styled from './ThemeBrowser.styled';
 import Toolbar from '../UI/Toolbar';
@@ -21,6 +21,7 @@ const ThemeBrowser = ({
   theme,
   isSbDark,
   selectValue,
+  selectWord,
   selectedValue,
   updateTheme,
   fieldSnippetFn,
@@ -28,10 +29,6 @@ const ThemeBrowser = ({
   const editors = useEditors(initialEditors);
 
   const footerAction = showThemePath(selectedValue, fieldSnippetFn);
-
-  // useEffect(() => {
-  //   if (!editorJSON && selectedValue) selectValue(null);
-  // }, [editorJSON, selectedValue]);
 
   const handlerChange = value => updateTheme(value.json);
 
@@ -58,6 +55,7 @@ const ThemeBrowser = ({
           theme,
           onChange: handlerChange,
           selectValue,
+          selectWord,
         })}
       </styled.ThemeHolder>
       {footerAction ? (

@@ -6,16 +6,12 @@ export const initialEditors = [
   {
     name: 'json',
     title: 'JSON',
-    renderComponent: ({ isDark, theme, selectValue }) => (
-      <ReactJsonEditor {...{ isDark, theme, selectValue }} />
-    ),
+    renderComponent: props => <ReactJsonEditor {...props} />,
   },
   {
     name: 'yaml',
     title: 'YAML',
-    renderComponent: ({ isDark, theme, onChange }) => (
-      <ReactYamlEditor {...{ isDark, theme, onChange }} />
-    ),
+    renderComponent: props => <ReactYamlEditor {...props} />,
   },
 ];
 
