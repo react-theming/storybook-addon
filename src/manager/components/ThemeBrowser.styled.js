@@ -45,6 +45,9 @@ export const SelectedCard = styled.div`
 export const ButtonsEditor = styled.div`
   display: flex;
   & button {
+    background-color: #97979752;
+    border: 1px gray solid;
+    border-radius: 2px;
     margin-right: 10px;
   }
 `;

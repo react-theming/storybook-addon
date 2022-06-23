@@ -21,7 +21,6 @@ const showThemePath = (selectedValue, fieldSnippetFn) => {
 
 const ThemeBrowser = ({
   theme,
-  themeInfo,
   jsTheme,
   selectValue,
   selectedValue,
@@ -29,9 +28,6 @@ const ThemeBrowser = ({
   fieldSnippetFn,
 }) => {
   const [editorJSON, setEditorJSON] = React.useState(true);
-  const sbTheme = useTheme();
-  const jsTheme =
-    sbTheme.base === 'light' ? 'shapeshifter:inverted' : 'codeschool';
 
   const footerAction = showThemePath(selectedValue, fieldSnippetFn);
 
@@ -70,7 +66,7 @@ const ThemeBrowser = ({
           />
         )}
       </styled.ThemeHolder>
-      {footerAction && editorJSON ? (
+      {footerAction ? (
         <Toolbar footer>
           <IconButton
             theme={jsTheme}
