@@ -41,8 +41,7 @@ const AddonThemingPanel = ({
   }, [themeInd]);
 
   const sbTheme = useTheme();
-  const jsTheme =
-    sbTheme.base === 'light' ? 'shapeshifter:inverted' : 'codeschool';
+  const isSbDark = sbTheme.base !== 'light';
 
   return isFirstDataReceived && themeInd !== null ? (
     <Layout name="adk-tmp">
@@ -52,7 +51,7 @@ const AddonThemingPanel = ({
         setCurrent={setCurrent}
       />
       <ThemeBrowser
-        jsTheme={jsTheme}
+        isSbDark={isSbDark}
         theme={theme}
         themeInfo={themeInfo}
         selectValue={selectValue}
@@ -61,7 +60,7 @@ const AddonThemingPanel = ({
         fieldSnippetFn={snippet}
       />
       <ColorDetails
-        jsTheme={jsTheme}
+        isSbDark={isSbDark}
         selectedValue={selectedValue}
         onChange={changeSelectedColor}
       />

@@ -2396,6 +2396,15 @@
   resolved "https://registry.yarnpkg.com/@codemirror/text/-/text-0.19.6.tgz#9adcbd8137f69b75518eacd30ddb16fd67bbac45"
   integrity sha512-T9jnREMIygx+TPC1bOuepz18maGq/92q2a+n4qTqObKwvNMg+8cMTslb8yxeEDEq7S3kpgGWxgO1UWbQRij0dA==
 
+"@codemirror/theme-one-dark@0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@codemirror/theme-one-dark/-/theme-one-dark-0.19.0.tgz#e039d7ee5de7ea6251f6cd53d1c12281a9b8e210"
+  integrity sha512-Xlk68ARreanFveE+KvZJY4HxecNr+VKDOR61O8l3kzlQ0qvxNXA0KAp1xu4p32pA9jzJqJi5haIgdfWSZogXZg==
+  dependencies:
+    "@codemirror/highlight" "^0.19.0"
+    "@codemirror/state" "^0.19.0"
+    "@codemirror/view" "^0.19.0"
+
 "@codemirror/theme-one-dark@^0.19.0":
   version "0.19.1"
   resolved "https://registry.yarnpkg.com/@codemirror/theme-one-dark/-/theme-one-dark-0.19.1.tgz#648b9cbe37186a2b7bd2a83fb483dc7aa18ce218"
@@ -2561,10 +2570,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@focus-reactive/react-yaml@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@focus-reactive/react-yaml/-/react-yaml-1.0.0.tgz#f8d4709fce06c503018f4d3244087a551675218c"
-  integrity sha512-ByiROYxv5hXlggAD5u8GiWUjC43MqWjwLsbMVmjQojyLT+ess7V3DYai8+iH4NRMfJEipvhFscqWKgYwAEljfg==
+"@focus-reactive/react-yaml@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@focus-reactive/react-yaml/-/react-yaml-1.1.2.tgz#0113f2841837ad9aeb2d2a94cfe9c2511cfc1e4a"
+  integrity sha512-X9/rmfuDHR+beDym2206RsD5m/5EfH26vVuGVbLXy7+BunPcVBRqwe2WbvCyoHloMUX7Ccp2xrLwmmPrvZ9hrA==
   dependencies:
     "@codemirror/basic-setup" "^0.19.0"
     "@codemirror/commands" "^0.19.3"

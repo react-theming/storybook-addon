@@ -8,7 +8,7 @@ import IconButton from '../UI/IconButton';
 import Text from '../UI/Text';
 import { copyToClipboard } from '../../utils/clipboard';
 
-const ColorDetails = ({ selectedValue, onChange, jsTheme }) => {
+const ColorDetails = ({ selectedValue, onChange, isSbDark }) => {
   const { value, name, type } = selectedValue || {};
   const isColor = type === 'color';
 
@@ -29,7 +29,7 @@ const ColorDetails = ({ selectedValue, onChange, jsTheme }) => {
       </styled.PickerHolder>
       <Toolbar footer>
         <IconButton
-          theme={jsTheme}
+          isDark={isSbDark}
           icon="copy"
           title="copy to clipboard"
           onClick={copyToClipboard(value)}

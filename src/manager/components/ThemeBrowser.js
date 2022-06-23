@@ -1,7 +1,4 @@
 import React, { useEffect } from 'react';
-import ReactJson from '@usulpro/react-json-view';
-import YamlEditor from '@focus-reactive/react-yaml';
-import { useTheme } from '@storybook/theming';
 
 import * as styled from './ThemeBrowser.styled';
 import Toolbar from '../UI/Toolbar';
@@ -9,6 +6,7 @@ import Caption from '../UI/Caption';
 import IconButton from '../UI/IconButton';
 import Text from '../UI/Text';
 import { copyToClipboard } from '../../utils/clipboard';
+import { initialEditors, useEditors } from '../editors/useEditors';
 
 const showThemePath = (selectedValue, fieldSnippetFn) => {
   if (!selectedValue) return 'Select value';
@@ -21,19 +19,19 @@ const showThemePath = (selectedValue, fieldSnippetFn) => {
 
 const ThemeBrowser = ({
   theme,
-  jsTheme,
+  isSbDark,
   selectValue,
   selectedValue,
   updateTheme,
   fieldSnippetFn,
 }) => {
-  const [editorJSON, setEditorJSON] = React.useState(true);
+  const editors = useEditors(initialEditors);
 
   const footerAction = showThemePath(selectedValue, fieldSnippetFn);
 
-  useEffect(() => {
-    if (!editorJSON && selectedValue) selectValue(null);
-  }, [editorJSON, selectedValue]);
+  // useEffect(() => {
+  //   if (!editorJSON && selectedValue) selectValue(null);
+  // }, [editorJSON, selectedValue]);
 
   const handlerChange = value => updateTheme(value.json);
 
@@ -41,35 +39,31 @@ const ThemeBrowser = ({
     <styled.Container>
       <Toolbar>
         <Caption>Editor:</Caption>
-        <styled.ButtonsEditor>
-          <button type="button" onClick={() => setEditorJSON(true)}>
-            JSON
-          </button>
-          <button type="button" onClick={() => setEditorJSON(false)}>
-            YAML
-          </button>
+        <styled.ButtonsEditor isDark={isSbDark}>
+          {editors.editorButtons.map(btn => (
+            <button
+              key={btn.name}
+              type="button"
+              className={btn.isSelected ? 'active' : ''}
+              onClick={btn.select}
+            >
+              {btn.title}
+            </button>
+          ))}
         </styled.ButtonsEditor>
       </Toolbar>
       <styled.ThemeHolder>
-        {editorJSON ? (
-          <ReactJson
-            src={theme}
-            onSelect={selectValue}
-            name={null}
-            theme={jsTheme}
-          />
-        ) : (
-          <YamlEditor
-            key={JSON.stringify(theme)}
-            json={theme}
-            onChange={handlerChange}
-          />
-        )}
+        {editors.renderCurrentEditor({
+          isDark: isSbDark,
+          theme,
+          onChange: handlerChange,
+          selectValue,
+        })}
       </styled.ThemeHolder>
       {footerAction ? (
         <Toolbar footer>
           <IconButton
-            theme={jsTheme}
+            isDark={isSbDark}
             icon="copy"
             title="copy to clipboard"
             onClick={copyToClipboard(footerAction)}
