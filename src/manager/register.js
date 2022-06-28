@@ -1,5 +1,6 @@
 import React from 'react';
 import { register, Layout } from '@storybook/addon-devkit';
+import { useTheme } from '@storybook/theming';
 
 import {
   getTheme,
@@ -39,6 +40,10 @@ const AddonThemingPanel = ({
     }
   }, [themeInd]);
 
+  const sbTheme = useTheme();
+  const jsTheme =
+    sbTheme.base === 'light' ? 'shapeshifter:inverted' : 'codeschool';
+
   return isFirstDataReceived && themeInd !== null ? (
     <Layout name="adk-tmp">
       <SelectTheme
@@ -47,6 +52,7 @@ const AddonThemingPanel = ({
         setCurrent={setCurrent}
       />
       <ThemeBrowser
+        jsTheme={jsTheme}
         theme={theme}
         themeInfo={themeInfo}
         selectValue={selectValue}
@@ -55,6 +61,7 @@ const AddonThemingPanel = ({
       />
       <ColorDetails
         colorSnippet={colorSnippet}
+        jsTheme={jsTheme}
         selectedValue={selectedValue}
         onChange={changeSelectedColor}
       />
