@@ -35,7 +35,7 @@ const ColorDetails = ({ selectedValue, onChange, colorSnippet, jsTheme }) => {
           title="copy to clipboard"
           onClick={copyToClipboard(value)}
         />
-        <Text>{(value && colorSnippet(value)) || 'Select color'}</Text>
+        <Text>{value ? colorSnippet(selectedValue) : 'Select color'}</Text>
       </Toolbar>
     </styled.Container>
   );

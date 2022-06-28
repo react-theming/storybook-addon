@@ -108,11 +108,12 @@ addDecorator(withThemes(ThemeProvider, [theme], { fieldSnippetFc }));
 By default, the addon outputs colors in HEX format, if you need some kind of add-in, then pass the colorSnippet parameter.
 
 ```js
-const colorSnippet = (hex) => {
+const colorSnippet = ({value, name, type}) => {
   // Here is your code
+  return value
 };
 
-// The colorSnipept function accepts the HEX parameter(#123312)
+// The colorSnipept function accepts an object consisting of { value : HEX, name: string, type: color}
 addDecorator(withThemes(ThemeProvider, [theme], { colorSnippet }));
 
 ```
