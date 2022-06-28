@@ -103,6 +103,20 @@ addDecorator(withThemes(ThemeProvider, [theme], { fieldSnippetFc }));
 
 ```
 
+### Example colorSnippet
+
+By default, the addon outputs colors in HEX format, if you need some kind of add-in, then pass the colorSnippet parameter.
+
+```js
+const colorSnippet = (hex) => {
+  // Here is your code
+};
+
+// The colorSnipept function accepts the HEX parameter(#123312)
+addDecorator(withThemes(ThemeProvider, [theme], { colorSnippet }));
+
+```
+
 BACKGROUND COLOR
 
 This addon has ability to auto change background color when it detect a dark theme. By default it checks if the theme name contains 'dark'.
