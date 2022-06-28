@@ -26,7 +26,9 @@ const ColorDetails = ({ selectedValue, selectedWord, onChange, isSbDark }) => {
         {isColor && (
           <ChromePicker color={value} onChangeComplete={handleChange} />
         )}
-        {selectedWord && guardHEXColor(selectedWord) && <ChromePicker color={selectedWord} />}
+        {selectedWord && guardHEXColor(selectedWord) && (
+          <ChromePicker color={selectedWord} />
+        )}
       </styled.PickerHolder>
       <Toolbar footer>
         <IconButton

@@ -1,5 +1,1 @@
-
-
-export const guardHEXColor = (str) => str?.includes('#', 0) && str.length > 3
- 
-
+export const guardHEXColor = str => str?.includes('#', 0) && str.length > 3;
