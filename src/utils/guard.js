@@ -1,1 +1,3 @@
-export const guardHEXColor = str => str?.includes('#', 0) && str.length > 3;
+import colorString from "color-string"
+
+export const guardHEXColor = str => colorString.get(str)
