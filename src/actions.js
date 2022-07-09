@@ -10,6 +10,7 @@ export const setCurrent = (store, ind, api) => {
   return {
     ...store,
     currentTheme: ind,
+    selectedWord: null,
   };
 };
 
