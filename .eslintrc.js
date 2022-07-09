@@ -18,6 +18,8 @@ module.exports = {
     'jest/globals': true,
   },
   rules: {
+    'react/jsx-props-no-spreading': 'off',
+    'arrow-body-style': 'off',
     strict: [error, 'never'],
     'prettier/prettier': [warn, prettier],
     quotes: [warn, 'single', { avoidEscape: true }],

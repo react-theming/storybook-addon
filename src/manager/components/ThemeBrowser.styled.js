@@ -41,3 +41,35 @@ export const SelectedCard = styled.div`
   margin-top: 4px;
   font-size: 16px;
 `;
+
+export const ButtonsEditor = styled.div`
+  display: flex;
+  button {
+    position: relative;
+    background-color: ${({ isDark }) => (isDark ? '#525252' : '#cbcbcb')};
+    border: none;
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 1px 8px;
+    margin: 0 0 0 10px;
+    color: ${({ isDark }) => (isDark ? '#bcbaba' : '#565454')};
+    cursor: pointer;
+
+    :hover {
+      opacity: 0.7;
+    }
+  }
+  button.active {
+    :hover {
+      opacity: 1;
+    }
+    ::after {
+      content: '🟢';
+      font-size: 4px;
+      position: absolute;
+      top: 1px;
+      left: 1px;
+    }
+  }
+`;

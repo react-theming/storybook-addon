@@ -27,11 +27,14 @@
     "deploy-storybook": "storybook-to-ghpages"
   },
   "dependencies": {
+    "@codemirror/theme-one-dark": "0.19.0",
+    "@focus-reactive/react-yaml": "^1.1.2",
     "@react-theming/flatten": "^0.1.1",
     "@react-theming/theme-name": "^1.0.3",
     "@react-theming/theme-swatch": "^1.0.0",
     "@storybook/addon-devkit": "^1.4.2",
     "@usulpro/react-json-view": "^2.0.1",
+    "color-string": "^1.9.1",
     "react-color": "^2.18.0"
   },
   "relativeDependencies": {

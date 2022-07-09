@@ -9,6 +9,7 @@ import {
   getSelectedValue,
   getCurrentInd,
   getSnippet,
+  getSelectedWord,
 } from '../selectors';
 import SelectTheme from './components/SelectTheme';
 import ThemeBrowser from './components/ThemeBrowser';
@@ -23,14 +24,16 @@ const AddonThemingPanel = ({
   themeInfoList,
   themeInfo,
   selectedValue,
+  selectedWord,
   setCurrent,
   selectValue,
+  selectWord,
   changeSelectedColor,
   isFirstDataReceived,
   api,
   snippet,
+  updateTheme,
 }) => {
-  window.api = api;
   React.useEffect(() => {
     if (themeInd === null) {
       const storedThemeInd = api.getQueryParam('themeInd');
@@ -39,8 +42,7 @@ const AddonThemingPanel = ({
   }, [themeInd]);
 
   const sbTheme = useTheme();
-  const jsTheme =
-    sbTheme.base === 'light' ? 'shapeshifter:inverted' : 'codeschool';
+  const isSbDark = sbTheme.base !== 'light';
 
   return isFirstDataReceived && themeInd !== null ? (
     <Layout name="adk-tmp">
@@ -50,16 +52,19 @@ const AddonThemingPanel = ({
         setCurrent={setCurrent}
       />
       <ThemeBrowser
-        jsTheme={jsTheme}
+        isSbDark={isSbDark}
         theme={theme}
         themeInfo={themeInfo}
         selectValue={selectValue}
+        selectWord={selectWord}
         selectedValue={selectedValue}
+        updateTheme={updateTheme}
         fieldSnippetFn={snippet}
       />
       <ColorDetails
-        jsTheme={jsTheme}
+        isSbDark={isSbDark}
         selectedValue={selectedValue}
+        selectedWord={selectedWord}
         onChange={changeSelectedColor}
       />
     </Layout>
@@ -75,11 +80,14 @@ register(
     themeInfo: getThemeInfo,
     themeInd: getCurrentInd,
     selectedValue: getSelectedValue,
+    selectedWord: getSelectedWord,
     snippet: getSnippet,
   },
   ({ global }) => ({
     setCurrent: global(actions.setCurrent),
     selectValue: global(actions.selectValue),
+    selectWord: global(actions.selectWord),
     changeSelectedColor: global(actions.changeSelectedColor),
+    updateTheme: global(actions.changeTheme),
   }),
 )(AddonThemingPanel);
