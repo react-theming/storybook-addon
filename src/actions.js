@@ -1,4 +1,5 @@
 import { getCurrentInd, getSelectedValue, getTheme } from './selectors';
+import { processWord } from './utils';
 
 export const setCurrent = (store, ind, api) => {
   if (api) {
@@ -21,7 +22,7 @@ export const selectValue = (store, value) => ({
 export const selectWord = (store, value) => ({
   ...store,
   selectedValue: null,
-  selectedWord: value,
+  selectedWord: processWord(value),
 });
 
 export const updateTheme = (store, ind, newTheme) => {

@@ -6,10 +6,10 @@ import Toolbar from '../UI/Toolbar';
 import Caption from '../UI/Caption';
 import IconButton from '../UI/IconButton';
 import Text from '../UI/Text';
-import { copyToClipboard, guardHEXColor } from '../../utils';
+import { copyToClipboard } from '../../utils';
 
 const ColorDetails = ({ selectedValue, selectedWord, onChange, isSbDark }) => {
-  const { value, name, type } = selectedValue || {};
+  const { value, name, type } = selectedValue || selectedWord || {};
   const isColor = type === 'color';
 
   const handleChange = colorInfo => {
@@ -25,9 +25,6 @@ const ColorDetails = ({ selectedValue, selectedWord, onChange, isSbDark }) => {
       <styled.PickerHolder>
         {isColor && (
           <ChromePicker color={value} onChangeComplete={handleChange} />
-        )}
-        {selectedWord && guardHEXColor(selectedWord) && (
-          <ChromePicker color={selectedWord} />
         )}
       </styled.PickerHolder>
       <Toolbar footer>

@@ -42,7 +42,5 @@ export const getSelectedValue = createSelector(getTheme, (theme, store) => {
 
 export const getSelectedWord = createSelector(store => {
   const { selectedWord } = store;
-  if (!selectedWord) return undefined;
-  const value = selectedWord.replace(/^['|"|`]|['|"|`]$/g, '');
-  return value;
+  return selectedWord;
 });
