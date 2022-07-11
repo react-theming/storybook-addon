@@ -79,7 +79,7 @@ import { theme } from '../src/theme';
 
 ```
 
-### Example fieldSnippetFc
+### Example getCustomFieldSnippet
 
 ```js
 const selectedValue = {
@@ -90,7 +90,7 @@ const selectedValue = {
 }
 
 
-const fieldSnippetFc = selectedValue => {
+const getCustomFieldSnippet = selectedValue => {
   const { namespace, name } = selectedValue;
   const path = namespace.join('.');
   const fullPath = `${path}.${name}`;
@@ -99,22 +99,22 @@ const fieldSnippetFc = selectedValue => {
 };
 
 // The snippet Func function takes the SelectedValue parameter and returns a string
-addDecorator(withThemes(ThemeProvider, [theme], { fieldSnippetFc }));
+addDecorator(withThemes(ThemeProvider, [theme], { getCustomFieldSnippet }));
 
 ```
 
-### Example colorSnippet
+### Example getCustomValueSnippet
 
 By default, the addon outputs colors in HEX format, if you need some kind of add-in, then pass the colorSnippet parameter.
 
 ```js
-const colorSnippet = ({value, name, type}) => {
+const getCustomValueSnippet = ({value, name, type}) => {
   // Here is your code
   return value
 };
 
 // The colorSnipept function accepts an object consisting of { value : HEX, name: string, type: color}
-addDecorator(withThemes(ThemeProvider, [theme], { colorSnippet }));
+addDecorator(withThemes(ThemeProvider, [theme], { getCustomValueSnippet }));
 
 ```
 
