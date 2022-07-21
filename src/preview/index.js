@@ -37,7 +37,7 @@ export const withThemes = (
   {
     providerFn,
     onThemeSwitch = onThemeSwitchDefault,
-    fieldSnippetFn = defaultSnippet,
+    fieldSnippetFn = null,
   } = {},
 ) =>
   withData(ThemeProvider, { providerFn, onThemeSwitch })({

@@ -7,11 +7,13 @@ import IconButton from '../UI/IconButton';
 import Text from '../UI/Text';
 import { copyToClipboard } from '../../utils/clipboard';
 import { initialEditors, useEditors } from '../editors/useEditors';
+import { defaultSnippet } from '../../utils/default';
 
 const showThemePath = (selectedValue, fieldSnippetFn) => {
   if (!selectedValue) return 'Select value';
   try {
-    return fieldSnippetFn(selectedValue);
+    const fn = fieldSnippetFn || defaultSnippet;
+    return fn(selectedValue);
   } catch (err) {
     return 'try to select value';
   }
