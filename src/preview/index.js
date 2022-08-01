@@ -3,7 +3,7 @@ import { addDecorator } from '@storybook/react';
 import { createDecorator, setParameters } from '@storybook/addon-devkit';
 import '../config';
 import { handleOnSwitch, onThemeSwitchDefault } from './onThemeSwitch';
-import { defaultSnippet } from '../utils/default';
+// import { defaultSnippet } from '../utils/default';
 
 const DecoratorUI = ThemeProvider => ({
   getStory,
