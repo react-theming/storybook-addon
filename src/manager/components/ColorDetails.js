@@ -1,7 +1,6 @@
 import React from 'react';
 import { ChromePicker } from 'react-color';
 
-
 import * as styled from './ColorDetails.styled';
 import Toolbar from '../UI/Toolbar';
 import Caption from '../UI/Caption';
@@ -28,12 +27,10 @@ const ColorDetails = ({ selectedValue, selectedWord, onChange, isSbDark }) => {
         {isColor ? (
           <styled.Animate>
             <ChromePicker color={value} onChangeComplete={handleChange} />
-          </styled.Animate >
+          </styled.Animate>
         ) : (
-            <Notification/>
+          <Notification />
         )}
-        
-      
       </styled.PickerHolder>
       <Toolbar footer>
         <IconButton

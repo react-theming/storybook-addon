@@ -11,10 +11,10 @@ const Notification = () => {
       {/* <img src="./assets/editor.png" alt="editor" /> */}
       <styled.Wrapper>
         <styled.ButtonsEditor isDark={false}>
-          <button>JSON</button>
+          <button type="button">JSON</button>
         </styled.ButtonsEditor>
         <styled.ButtonsEditor isDark={false}>
-          <button>YAML</button>
+          <button type="button">YAML</button>
         </styled.ButtonsEditor>
       </styled.Wrapper>
     </styled.Box>

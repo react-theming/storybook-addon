@@ -1,8 +1,8 @@
-import { styled, keyframes, css  } from '@storybook/theming';
+import { styled, keyframes } from '@storybook/theming';
 import { Block } from '@storybook/addon-devkit';
 import { bounceInUp } from 'react-animations';
 
-const animate = keyframes`${bounceInUp}`
+const animate = keyframes`${bounceInUp}`;
 
 export const Container = styled(Block)`
   display: flex;
@@ -22,6 +22,5 @@ export const PickerHolder = styled.div`
 `;
 
 export const Animate = styled.div`
-    animation: 3s ${animate}
-`
-
+  animation: 3s ${animate};
+`;

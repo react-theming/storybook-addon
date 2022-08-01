@@ -4,7 +4,7 @@ export const Box = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: rgba(30,167,253, 0.9);
+  background-color: rgba(30, 167, 253, 0.9);
   padding: 20px 5px;
 `;
 
@@ -19,10 +19,9 @@ export const SubTitle = styled.div`
 `;
 
 export const Wrapper = styled.div`
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 `;
-
 
 export const ButtonsEditor = styled.div`
   display: flex;
