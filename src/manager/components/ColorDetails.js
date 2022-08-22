@@ -6,11 +6,10 @@ import Toolbar from '../UI/Toolbar';
 import Caption from '../UI/Caption';
 import IconButton from '../UI/IconButton';
 import Text from '../UI/Text';
-import { copyToClipboard } from '../../utils/clipboard';
+import { copyToClipboard } from '../../utils';
 
-const ColorDetails = ({ selectedValue, onChange, colorSnippet, jsTheme }) => {
-  const { value, name, type } = selectedValue || {};
-
+const ColorDetails = ({ selectedValue, selectedWord, onChange, isSbDark }) => {
+  const { value, name, type } = selectedValue || selectedWord || {};
   const isColor = type === 'color';
 
   const handleChange = colorInfo => {
@@ -30,7 +29,7 @@ const ColorDetails = ({ selectedValue, onChange, colorSnippet, jsTheme }) => {
       </styled.PickerHolder>
       <Toolbar footer>
         <IconButton
-          theme={jsTheme}
+          isDark={isSbDark}
           icon="copy"
           title="copy to clipboard"
           onClick={copyToClipboard(value)}

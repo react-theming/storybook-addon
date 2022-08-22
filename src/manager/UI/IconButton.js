@@ -14,15 +14,13 @@ const Button = styled.button`
   background-repeat: no-repeat;
   background-size: contain;
   svg {
-    fill: ${({ theme }) => (theme === 'codeschool' ? 'white' : 'black')};
+    fill: ${({ isDark }) => (isDark ? 'white' : 'black')};
   }
 
   :hover {
-    background-color: ${({ theme }) =>
-      theme !== 'codeschool' ? 'white' : null};
+    background-color: ${({ isDark }) => (isDark ? 'white' : null)};
     svg {
-      stroke: ${({ theme }) =>
-        theme !== 'codeschool' ? '#eeeeee' : '#d4cece'};
+      stroke: ${({ isDark }) => (isDark ? '#eeeeee' : '#d4cece')};
     }
   }
 `;
@@ -42,10 +40,10 @@ const icons = {
   copy: copyIcon,
 };
 
-const IconButton = ({ onClick, title, icon, theme }) => {
+const IconButton = ({ onClick, title, icon, isDark }) => {
   const svg = icons[icon];
   return (
-    <Button theme={theme} onClick={onClick} title={title}>
+    <Button isDark={isDark} onClick={onClick} title={title}>
       {svg}
     </Button>
   );

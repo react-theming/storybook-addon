@@ -40,3 +40,8 @@ export const getSelectedValue = createSelector(getTheme, (theme, store) => {
   const value = nestedObj[name];
   return { name, namespace, value, type };
 });
+
+export const getSelectedWord = createSelector(store => {
+  const { selectedWord } = store;
+  return selectedWord;
+});

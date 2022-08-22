@@ -1,4 +1,5 @@
 import { getCurrentInd, getSelectedValue, getTheme } from './selectors';
+import { processWord } from './utils';
 
 export const setCurrent = (store, ind, api) => {
   if (api) {
@@ -9,12 +10,20 @@ export const setCurrent = (store, ind, api) => {
   return {
     ...store,
     currentTheme: ind,
+    selectedWord: null,
   };
 };
 
-export const selectValue = (store, { name, namespace, type }) => ({
+export const selectValue = (store, value) => ({
   ...store,
-  selectedValue: { name, namespace, type },
+  selectedValue: value,
+  selectedWord: null,
+});
+
+export const selectWord = (store, value) => ({
+  ...store,
+  selectedValue: null,
+  selectedWord: processWord(value),
 });
 
 export const updateTheme = (store, ind, newTheme) => {
@@ -42,4 +51,15 @@ export const changeSelectedColor = (store, color) => {
   const themeClone = JSON.parse(JSON.stringify(theme));
   mutateObj(themeClone, namespace, name, color);
   return updateTheme(store, ind, themeClone);
+};
+
+export const changeTheme = (store, newTheme) => {
+  const ind = getCurrentInd(store);
+  const { themesList } = store;
+  const newThemesList = [...themesList];
+  newThemesList[ind] = newTheme;
+  return {
+    ...store,
+    themesList: newThemesList,
+  };
 };
