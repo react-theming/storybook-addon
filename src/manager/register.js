@@ -37,6 +37,8 @@ const AddonThemingPanel = ({
   React.useEffect(() => {
     if (themeInd === null) {
       const storedThemeInd = api.getQueryParam('themeInd');
+      // TODO: пересмотреть
+      // TODO: почему старый стор???
       setCurrent(storedThemeInd || 0);
     }
   }, [themeInd]);

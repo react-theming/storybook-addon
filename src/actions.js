@@ -7,12 +7,22 @@ export const setCurrent = (store, ind, api) => {
       themeInd: ind,
     });
   }
+  console.log("STORE", store)
+
   return {
     ...store,
     currentTheme: ind,
     selectedWord: null,
   };
 };
+
+export const selectSnippetValue= (store, value) => {
+  console.log("selectSnippetValue", store)
+  const newStore = {
+    ...store,
+    selectedSnippetValue: value
+  }
+}
 
 export const selectValue = (store, value) => ({
   ...store,
