@@ -3,7 +3,7 @@ import { addDecorator } from '@storybook/react';
 import { createDecorator, setParameters } from '@storybook/addon-devkit';
 import '../config';
 import { handleOnSwitch, onThemeSwitchDefault } from './onThemeSwitch';
-import { defaultSnippet } from '../utils/default';
+import { defaultColorSnippet, defaultSnippet } from '../utils/default';
 
 const DecoratorUI = ThemeProvider => ({
   getStory,
@@ -37,13 +37,15 @@ export const withThemes = (
   {
     providerFn,
     onThemeSwitch = onThemeSwitchDefault,
-    fieldSnippetFn = null,
+    getCustomFieldSnippet = defaultSnippet,
+    getCustomValueSnippet = defaultColorSnippet,
   } = {},
 ) =>
   withData(ThemeProvider, { providerFn, onThemeSwitch })({
     themesList,
     currentTheme: null,
-    fieldSnippetFn,
+    fieldSnippetFn: getCustomFieldSnippet,
+    colorSnippet: getCustomValueSnippet,
   });
 
 export const toThemes = setParameters();

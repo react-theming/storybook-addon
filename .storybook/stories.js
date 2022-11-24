@@ -25,13 +25,16 @@ export const onThemeSwitch = context => {
   };
 };
 
+const getCustomValueSnippet = ({}) => {
+
+}
 
 
 storiesOf('Button', module)
   .addDecorator(
     withThemes(ThemeProvider, [theme, themeAlt, darkTheme], {
       providerFn,
-      onThemeSwitch
+      onThemeSwitch,
     }
     ),
   )

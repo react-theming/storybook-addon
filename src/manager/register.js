@@ -82,6 +82,7 @@ register(
     selectedValue: getSelectedValue,
     selectedWord: getSelectedWord,
     snippet: getSnippet,
+    colorSnippet: getColorSnippet,
   },
   ({ global }) => ({
     setCurrent: global(actions.setCurrent),
