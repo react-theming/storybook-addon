@@ -10,6 +10,7 @@ import {
   getCurrentInd,
   getSnippet,
   getSelectedWord,
+  getColorSnippet,
 } from '../selectors';
 import SelectTheme from './components/SelectTheme';
 import ThemeBrowser from './components/ThemeBrowser';
