@@ -8,7 +8,13 @@ import IconButton from '../UI/IconButton';
 import Text from '../UI/Text';
 import { copyToClipboard } from '../../utils';
 
-const ColorDetails = ({ selectedValue, selectedWord, onChange, isSbDark }) => {
+const ColorDetails = ({
+  selectedValue,
+  selectedWord,
+  onChange,
+  isSbDark,
+  colorSnippet,
+}) => {
   const { value, name, type } = selectedValue || selectedWord || {};
   const isColor = type === 'color';
 

@@ -33,6 +33,7 @@ const AddonThemingPanel = ({
   isFirstDataReceived,
   api,
   snippet,
+  colorSnippet,
   updateTheme,
 }) => {
   React.useEffect(() => {
@@ -67,6 +68,7 @@ const AddonThemingPanel = ({
         selectedValue={selectedValue}
         selectedWord={selectedWord}
         onChange={changeSelectedColor}
+        colorSnippet={colorSnippet}
       />
     </Layout>
   ) : (
