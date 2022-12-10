@@ -25,7 +25,7 @@ export const onThemeSwitch = context => {
   };
 };
 
-const getCustomValueSnippet = selectedValue => `color: ${selectedValue.value}`
+const getCustomValueSnippet = selectedValue => `color: ${selectedValue?.value}`
 
 
 storiesOf('Button', module)
@@ -33,7 +33,7 @@ storiesOf('Button', module)
     withThemes(ThemeProvider, [theme, themeAlt, darkTheme], {
       providerFn,
       onThemeSwitch,
-      getCustomValueSnippet
+      // getCustomValueSnippet
     }
     ),
   )

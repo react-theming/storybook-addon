@@ -6,4 +6,4 @@ export const defaultSnippet = selectedValue => {
   return themeProp;
 };
 
-export const defaultColorSnippet = selectedValue => selectedValue.value;
+export const defaultColorSnippet = selectedValue => selectedValue?.value || '';
